@@ -5,9 +5,9 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 
 function Layout({ children }) {
-  const { file } = useStaticQuery(graphql`
+  const { logo, logoGrayScale } = useStaticQuery(graphql`
     {
-      file(
+      logo: file(
         relativePath: { eq: "icon.png" }
         sourceInstanceName: { eq: "images" }
       ) {
@@ -18,14 +18,25 @@ function Layout({ children }) {
           }
         }
       }
+      logoGrayScale: file(
+        relativePath: { eq: "icon.png" }
+        sourceInstanceName: { eq: "images" }
+      ) {
+        id
+        childImageSharp {
+          fixed(width: 85, grayscale: true) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
   return (
-    <Box background="gray.50" minHeight="100vh" display="flex" flexDirection="column">
-      <Header logo={file.childImageSharp.fixed} />
+    <Box background="#fcfbfb" minHeight="100vh" display="flex" flexDirection="column">
+      <Header logo={logo.childImageSharp.fixed} />
       {children}
-      <Footer logo={file.childImageSharp.fixed} />
+      <Footer logo={logoGrayScale.childImageSharp.fixed} />
     </Box>
   );
 }

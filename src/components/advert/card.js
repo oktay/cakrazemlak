@@ -46,7 +46,7 @@ function AdvertCard({ advert }) {
         display="flex"
         alignItems="center"
         color="gray.500"
-        fontWeight="semibold"
+        fontWeight="medium"
         letterSpacing="wide"
         fontSize="xs"
         textTransform="uppercase"
@@ -58,7 +58,7 @@ function AdvertCard({ advert }) {
           </Badge>
         )}
       </Text>
-      <Heading size="md" as="strong" fontWeight="semibold" noOfLines="1">
+      <Heading size="md" as="strong" fontWeight="medium" noOfLines="1">
         <Link
           as={RouterLink}
           to={`/${advert.type}/${advert.slug}`}

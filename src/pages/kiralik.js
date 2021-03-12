@@ -1,9 +1,10 @@
-import { Container, Heading } from "@chakra-ui/react";
-import { graphql } from 'gatsby';
 import React from "react";
+import { Container } from "@chakra-ui/react";
+import { graphql } from 'gatsby';
 import SiteWrapper from "../chakra";
 import AdvertList from "../components/advert/list";
 import Layout from "../components/layout/layout";
+import Title from '../components/layout/title';
 
 function Rent({ data }) {
   return (
@@ -11,9 +12,7 @@ function Rent({ data }) {
       <title>Kiralık | Çakraz Emlak</title>
       <Layout>
         <Container maxWidth="container.xl" pb="8">
-          <Heading textAlign="center" my="12" fontWeight="medium">
-            Kiralık
-          </Heading>
+          <Title>Kiralık</Title>
           <AdvertList adverts={data.allStrapiAdverts.nodes} />
         </Container>
       </Layout>

@@ -3,7 +3,8 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import SiteWrapper from "../chakra";
 import Hero from "../components/layout/hero";
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import { Box, Container, Text } from "@chakra-ui/react";
+import Title from '../components/layout/title';
 
 function Page({ data }) {
   return (
@@ -13,7 +14,7 @@ function Page({ data }) {
         <Hero image={data.strapiPages.heroimg} />
         <Container maxWidth="container.xl" pb="8" position="relative">
           <Box background="white" boxShadow="sm" mt={{ base: "-56", md: "-16" }} borderRadius="md" paddingX="8" paddingY="4" paddingBottom="12">
-            <Heading textAlign="center" my="8" fontWeight="medium">{data.strapiPages.title}</Heading>
+            <Title>{data.strapiPages.title}</Title>
             <Text>{data.strapiPages.description}</Text>
           </Box>
         </Container>
