@@ -1,48 +1,81 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://cakraz-emlak.vercel.app">
+    <img alt="Gatsby" src="src/images/logo.png" width="100" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  Çakraz Emlak
 </h1>
 
-## 🚀 Quick start
+Real estate website wtih Gatsby & Strapi.
 
-1.  **Create a Gatsby site.**
+## 🚀 Setup CMS
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+1.  **Clone Strapi CMS**
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
+    Clone [cakraz-emlak-cms](https://github.com/oktay/cakraz-emlak-cms) for backend and content managment. **Follow instructions in the [`cakraz-emlak-cms/README.md`](https://github.com/oktay/cakraz-emlak-cms/blob/master/README.md) file.**
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    # clone repo
+    git clone https://github.com/oktay/cakraz-emlak-cms
+    cd cakraz-emlak-cms
+    yarn install
     ```
 
-3.  **Open the code and start customizing!**
+2.  **Start Strapi Server**
 
-    Your site is now running at http://localhost:8000!
+    ```shell
+    yarn develop
+    ```
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    Your backend/cms is now running at `http://localhost:1337`!
 
-4.  **Learn more**
+    \*Note: If your first time, you need create admin user, create **at least one content for each content type** and activate **`find`**, **`findone`** permissions for content types **otherwise you cant run gatsby server.\***
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 🌟 Run Frontend
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+When Strapi part is done and running, you can start develop frontend part.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1.  **Clone Frontend**
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    ```shell
+    git clone https://github.com/oktay/cakraz-emlak
+    cd cakraz-emlak
+    yarn install
+    ```
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+2.  **Run server**
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    ```shell
+    yarn develop
+    ```
+
+    Your site is now running at `http://localhost:8000!`
+
+    _Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the Gatsby tutorial._
+
+    ### ❤ Icons
+
+    When you want use new custom icon, just place svg file to `src/icons` directory and run icon script
+
+    ```shell
+    yarn icon
+    ```
+
+    This script creates new icons react component
+
+    ```shell
+    # yarn icon script output:
+
+     $ svgr src/icons -d src/components/icons --icon --replace-attr-values "#1C1C1C=currentColor"
+    src/icons/chevron-down.svg -> src/components/icons/ChevronDown.js
+    src/icons/hamburger.svg -> src/components/icons/Hamburger.js
+    src/icons/cakraz.svg -> src/components/icons/Cakraz.js
+    src/icons/location.svg -> src/components/icons/Location.js
+    src/icons/phone.svg -> src/components/icons/Phone.js
+    src/icons/email.svg -> src/components/icons/Email.js
+    src/icons/slider-next.svg -> src/components/icons/SliderNext.js
+    src/icons/slider-previous.svg -> src/components/icons/SliderPrevious.js
+    src/icons/times.svg -> src/components/icons/Times.js
+    Done in 4.58s.
+    ```
