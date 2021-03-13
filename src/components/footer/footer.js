@@ -29,7 +29,7 @@ function Footer({ logo, info }) {
               colorScheme="whatsapp"
               variant="ghost"
               py="8"
-              href="tel:05555555555"
+              href={"tel:" + info.phone}
             >
               <Stack alignItems="flex-start" ml="4" spacing="0" fontSize="sm">
                 <Text fontWeight="normal">Telefon</Text>
@@ -55,7 +55,7 @@ function Footer({ logo, info }) {
               colorScheme="whatsapp"
               variant="ghost"
               py="8"
-              href="mailto:info@cakrazemlak.com"
+              href={"mailto:" + info.email}
             >
               <Stack alignItems="flex-start" ml="4" spacing="0" fontSize="sm">
                 <Text fontWeight="normal">E-Mail</Text>
