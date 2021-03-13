@@ -5,7 +5,7 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 
 function Layout({ children }) {
-  const { logo, logoGrayScale } = useStaticQuery(graphql`
+  const { logo, logoGrayScale, info } = useStaticQuery(graphql`
     {
       logo: file(
         relativePath: { eq: "icon.png" }
@@ -24,19 +24,32 @@ function Layout({ children }) {
       ) {
         id
         childImageSharp {
-          fixed(width: 85, grayscale: true) {
+          fixed(
+            width: 85
+            duotone: { highlight: "#cccccc", shadow: "#cccccc" }
+          ) {
             ...GatsbyImageSharpFixed
           }
         }
+      }
+      info: strapiHomepage {
+        email
+        phone
+        location
       }
     }
   `);
 
   return (
-    <Box background="#fcfbfb" minHeight="100vh" display="flex" flexDirection="column">
+    <Box
+      background="#fcfbfb"
+      minHeight="100vh"
+      display="flex"
+      flexDirection="column"
+    >
       <Header logo={logo.childImageSharp.fixed} />
       {children}
-      <Footer logo={logoGrayScale.childImageSharp.fixed} />
+      <Footer logo={logoGrayScale.childImageSharp.fixed} info={info} />
     </Box>
   );
 }

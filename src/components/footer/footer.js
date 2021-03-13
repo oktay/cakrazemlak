@@ -13,7 +13,7 @@ import { Link as RouterLink } from "gatsby";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import Img from "gatsby-image";
 
-function Footer({ logo }) {
+function Footer({ logo, info }) {
   const [isDesktop] = useMediaQuery("(min-width: 48em)");
   return (
     <Box as="footer" py="8" background="white" boxShadow="sm" mt="auto">
@@ -33,7 +33,7 @@ function Footer({ logo }) {
             >
               <Stack alignItems="flex-start" ml="4" spacing="0" fontSize="sm">
                 <Text fontWeight="normal">Telefon</Text>
-                <Text fontWeight="medium">0555 555 55 55</Text>
+                <Text fontWeight="medium">{info.phone}</Text>
               </Stack>
             </Button>
             <Button
@@ -42,11 +42,11 @@ function Footer({ logo }) {
               variant="ghost"
               py="8"
               as={RouterLink}
-              to="/contact"
+              to="/iletisim"
             >
               <Stack alignItems="flex-start" ml="4" spacing="0" fontSize="sm">
                 <Text fontWeight="normal">Konum</Text>
-                <Text fontWeight="medium">Bartın, Merkez</Text>
+                <Text fontWeight="medium">{info.location}</Text>
               </Stack>
             </Button>
             <Button
@@ -59,7 +59,7 @@ function Footer({ logo }) {
             >
               <Stack alignItems="flex-start" ml="4" spacing="0" fontSize="sm">
                 <Text fontWeight="normal">E-Mail</Text>
-                <Text fontWeight="medium">info@cakrazemlak.com</Text>
+                <Text fontWeight="medium">{info.email}</Text>
               </Stack>
             </Button>
           </Stack>}

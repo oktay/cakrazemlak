@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Thumbs, Navigation, Controller } from "swiper/core";
 import { PhotoSwipe } from "react-photoswipe";
-import { Box, IconButton, Button } from "@chakra-ui/react";
+import { Box, IconButton, Button, Image } from "@chakra-ui/react";
 import {
   FiArrowLeftCircle,
   FiArrowRightCircle,
@@ -68,10 +68,11 @@ function AdvertCarousel({ advert }) {
               onClick={() => setZoom(true)}
               style={{ cursor: "zoom-in" }}
             >
-              <GatsbyImage
+              <Image as={GatsbyImage}
                 fluid={childImageSharp.fluid}
-                style={{ height: "640px", width: "100%" }}
-                imgStyle={{ objectFit: "contain" }}
+                imgStyle={{ objectFit: 'contain' }}
+                height={{ base: "250px", md: "640px" }}
+                width="100%"
               />
             </SwiperSlide>
           ))}
@@ -118,7 +119,7 @@ function AdvertCarousel({ advert }) {
                 borderColor={index === idx ? "whatsapp.400" : "transparent"}
                 height="120px"
               >
-                <GatsbyImage
+                <Image as={GatsbyImage}
                   fluid={childImageSharp.fluid}
                   imgStyle={{ objectFit: "cover" }}
                   style={{ width: "100%", height: "100%" }}

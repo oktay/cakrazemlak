@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Box,
   Container,
@@ -21,6 +21,7 @@ import Navigation from "./navigation";
 function Header({ logo }) {
   const [isDesktop] = useMediaQuery("(min-width: 48em)");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const ref = useRef();
 
   return (
     <Box as="header" py="4" background="white" boxShadow="sm">
@@ -44,14 +45,14 @@ function Header({ logo }) {
           )}
         </Flex>
       </Container>
-      <Drawer placement="top" isOpen={isOpen} onClose={onClose}>
+      <Drawer placement="top" isOpen={isOpen} onClose={onClose} initialFocusRef={ref}>
         <DrawerOverlay zIndex="popover">
           <DrawerContent borderBottomRadius="8" zIndex="popover">
             <DrawerHeader display="flex" justifyContent="space-between" alignItems="center" padding="1rem">
               <Link as={RouterLink} to="/">
                 <Img fixed={logo} />
               </Link>
-              <IconButton size="lg" fontSize="2xl" icon={<FiX />} colorScheme="whatsapp" variant="ghost" onClick={onClose} />
+              <IconButton size="lg" fontSize="2xl" icon={<FiX />} colorScheme="whatsapp" variant="ghost" onClick={onClose} ref={ref} />
             </DrawerHeader>
             <DrawerBody paddingBottom="8" paddingX="1rem">
               <Navigation />

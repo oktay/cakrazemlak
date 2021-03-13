@@ -29,6 +29,10 @@ function Navigation() {
       slug: "kiralik",
     },
     ...pages.nodes,
+    {
+      title: "İletişim",
+      slug: "iletisim"
+    }
   ];
   
   const location = useLocation();
