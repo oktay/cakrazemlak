@@ -55,7 +55,7 @@ function ContactPage() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23857.599433129722!2d32.32060738008372!3d41.629809748901444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409b72335ea8fb4d%3A0x7820a074d3b17daf!2zQmFydMSxbiwgQmFydMSxbiBNZXJrZXovQmFydMSxbg!5e0!3m2!1str!2str!4v1615673990782!5m2!1str!2str"
                 loading="lazy"
               />
-              <Stack mt={{ base: "8", lg: "0" }} ml="12" spacing="4" divider={<StackDivider />}>
+              <Stack mt={{ base: "8", lg: "0" }} ml={{ base: "0", lg: "12" }} spacing="4" divider={<StackDivider />}>
                 <Stack alignItems="flex-start" spacing="2" fontSize="sm">
                   <Stack direction="row" spacing="2" alignItems="center" color="whatsapp.400">
                     <FiPhone fontSize="1.2rem" /> <Text color="black">Telefon</Text>
