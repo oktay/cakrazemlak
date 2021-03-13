@@ -29,7 +29,7 @@ function AdvertCarousel({ advert }) {
     fontSize: "4xl",
     position: "absolute",
     top: "50%",
-    zIndex: "overlay",
+    zIndex: "1",
     transform: "translateY(-50%)",
     colorScheme: "whatsapp",
   };
@@ -81,7 +81,7 @@ function AdvertCarousel({ advert }) {
           position="absolute"
           top="2"
           right="2"
-          zIndex="overlay"
+          zIndex="1"
           rightIcon={<FiMaximize2 />}
           onClick={() => setZoom(true)}
         >
@@ -112,11 +112,11 @@ function AdvertCarousel({ advert }) {
           watchSlidesProgress
         >
           {advert.thumbnails.map(({ id, childImageSharp }, idx) => (
-            <SwiperSlide key={id} style={{ width: "180px", height: "100px" }}>
+            <SwiperSlide key={id} style={{ width: "180px", height: "120px" }}>
               <Box
                 border="2px solid"
                 borderColor={index === idx ? "whatsapp.400" : "transparent"}
-                height="100px"
+                height="120px"
               >
                 <GatsbyImage
                   fluid={childImageSharp.fluid}

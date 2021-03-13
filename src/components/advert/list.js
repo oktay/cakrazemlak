@@ -5,7 +5,7 @@ import AdvertCard from "./card";
 
 function AdvertList({ adverts }) {
   return (
-    <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="12">
+    <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }} gap="12">
       {adverts.map((advert) => (
         <AdvertCard key={advert.id} advert={advert} />
       ))}

@@ -45,8 +45,8 @@ function Header({ logo }) {
         </Flex>
       </Container>
       <Drawer placement="top" isOpen={isOpen} onClose={onClose}>
-        <DrawerOverlay>
-          <DrawerContent borderBottomRadius="8">
+        <DrawerOverlay zIndex="popover">
+          <DrawerContent borderBottomRadius="8" zIndex="popover">
             <DrawerHeader display="flex" justifyContent="space-between" alignItems="center" padding="1rem">
               <Link as={RouterLink} to="/">
                 <Img fixed={logo} />

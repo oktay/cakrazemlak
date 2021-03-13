@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Container } from '@chakra-ui/react';
 import SiteWrapper from '../chakra';
 import Layout from '../components/layout/layout';
-import AdvertDetail from '../components/advert/detail';
+import AdvertDetail from '../components/advert-detail/detail';
 
 function Advert({ data }) {
   return (
