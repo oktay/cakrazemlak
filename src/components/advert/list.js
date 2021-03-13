@@ -33,8 +33,29 @@ export const query = graphql`
     location
     price
     thumbnail {
-      childImageSharp {
+      small: childImageSharp {
         fluid(maxWidth: 350) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    zooms: images {
+      url
+      width
+      height
+    }
+    images: localImage {
+      id
+      childImageSharp {
+        fluid(maxWidth: 1440) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    thumbnails: localImage {
+      id
+      childImageSharp {
+        fluid(maxWidth: 170) {
           ...GatsbyImageSharpFluid
         }
       }

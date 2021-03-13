@@ -19,6 +19,13 @@ module.exports = {
         singleTypes: [`homepage`],
       },
     },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'StrapiAdverts',
+        imagePath: 'images[].url',
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "@chakra-ui/gatsby-plugin",

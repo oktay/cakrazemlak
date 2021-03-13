@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Heading, Stack } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack, useToast } from "@chakra-ui/react";
 import { FormControl, FormLabel, Select } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
-import { FiChevronUp } from "react-icons/fi";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import AdvertList from "../advert/list";
 
 function Searchbox({ adverts }) {
@@ -28,6 +28,7 @@ function Searchbox({ adverts }) {
   const [type, setType] = useState("kiralik");
   const [filteredAdverts, setFilteredAdverts] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const toast = useToast();
   const resultsRef = useRef(null);
 
   function handleSubmit(event) {
@@ -63,6 +64,13 @@ function Searchbox({ adverts }) {
         block: "start",
       });
     }, 0);
+    toast({
+      title: "Sonuçlar temizlendi",
+      status: "success",
+      duration: 1000,
+      isClosable: true,
+      position: "top-right",
+    });
   }
 
   return (
@@ -83,14 +91,24 @@ function Searchbox({ adverts }) {
         >
           <FormControl id="type">
             <FormLabel>Tür</FormLabel>
-            <Select size="lg" onChange={(event) => setType(event.target.value)}>
+            <Select
+              focusBorderColor="whatsapp.400"
+              icon={<FiChevronDown />}
+              size="lg"
+              onChange={(event) => setType(event.target.value)}
+            >
               <option value="kiralik">Kiralık</option>
               <option value="satilik">Satılık</option>
             </Select>
           </FormControl>
           <FormControl id="location">
             <FormLabel>Konum</FormLabel>
-            <Select size="lg" placeholder="Konum">
+            <Select
+              focusBorderColor="whatsapp.400"
+              icon={<FiChevronDown />}
+              size="lg"
+              placeholder="Konum"
+            >
               {data[type].group.map((group) => (
                 <option key={group.fieldValue} value={group.fieldValue}>
                   {group.fieldValue}

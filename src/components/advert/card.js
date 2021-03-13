@@ -27,7 +27,7 @@ function AdvertCard({ advert }) {
         <Box position="relative" background="#000" borderRadius="lg">
           <Image
             as={GatsbyImage}
-            fluid={advert.thumbnail.childImageSharp.fluid}
+            fluid={advert.thumbnail.small.fluid}
             borderRadius="md"
             transition="150ms ease-out"
             _hover={{ opacity: 0.8 }}
