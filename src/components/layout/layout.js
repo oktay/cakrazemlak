@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Box } from "@chakra-ui/react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import { Helmet } from 'react-helmet';
 
 function Layout({ children }) {
   const { logo, logoGrayScale, info } = useStaticQuery(graphql`
@@ -12,6 +13,7 @@ function Layout({ children }) {
         sourceInstanceName: { eq: "images" }
       ) {
         id
+        publicURL
         childImageSharp {
           fixed(width: 85) {
             ...GatsbyImageSharpFixed_tracedSVG
@@ -47,6 +49,9 @@ function Layout({ children }) {
       display="flex"
       flexDirection="column"
     >
+      <Helmet>
+        <link rel="shortcut icon" href={logo.publicURL} type="image/x-icon"/>
+      </Helmet>
       <Header logo={logo.childImageSharp.fixed} />
       {children}
       <Footer logo={logoGrayScale.childImageSharp.fixed} info={info} />
