@@ -33,6 +33,7 @@ export const query = graphql`
     location
     price
     thumbnail {
+      publicURL
       small: childImageSharp {
         fluid(maxWidth: 350) {
           ...GatsbyImageSharpFluid

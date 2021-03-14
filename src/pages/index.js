@@ -7,6 +7,7 @@ import Hero from "../components/layout/hero";
 import AdvertList from "../components/advert/list";
 import Searchbox from '../components/search/searchbox';
 import Title from '../components/layout/title';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = ({ data }) => {
   const highlights = data.adverts.nodes.filter(
@@ -14,7 +15,10 @@ const IndexPage = ({ data }) => {
   );
   return (
     <SiteWrapper>
-      <title>Anasayfa | Çakraz Emlak</title>
+      <Helmet title="Anasayfa | Çakraz Emlak">
+        <meta name="description" content={data.homepage.description} />
+        <meta name="keywords" content={data.homepage.keywords} />
+      </Helmet>
       <Layout>
         <Hero image={data.homepage.heroimg} />
         <Container maxWidth="container.xl" mt={{ base: "-56", md:"-16" }} pb="8">
@@ -35,6 +39,8 @@ export const query = graphql`
       }
     }
     homepage : strapiHomepage {
+      description
+      keywords
       heroimg {
         childImageSharp {
           fluid(maxWidth: 1920) {

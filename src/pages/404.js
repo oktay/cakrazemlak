@@ -4,10 +4,12 @@ import SiteWrapper from "../chakra";
 import Layout from "../components/layout/layout";
 import { Button, Container, Heading, Text } from "@chakra-ui/react";
 import { FiArrowLeft } from "react-icons/fi";
+import { Helmet } from 'react-helmet';
 
 const NotFoundPage = () => {
   return (
     <SiteWrapper>
+      <Helmet title="Sayfa bulunamadı | Çakraz Emlak" />
       <Layout>
         <Container
           maxWidth="container.xl"

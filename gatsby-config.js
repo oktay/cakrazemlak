@@ -26,6 +26,7 @@ module.exports = {
         imagePath: 'images[].url',
       },
     },
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "@chakra-ui/gatsby-plugin",

@@ -5,17 +5,21 @@ import SiteWrapper from "../chakra";
 import Hero from "../components/layout/hero";
 import { Box, Container, Text } from "@chakra-ui/react";
 import Title from '../components/layout/title';
+import { Helmet } from 'react-helmet';
 
 function Page({ data }) {
   return (
     <SiteWrapper>
-      <title>{data.strapiPages.title} | Çakraz Emlak</title>
+      <Helmet title={`${data.page.title} | Çakraz Emlak`}>
+        <meta name="description" content={`${data.page.title}, Çakraz Emlak`} />
+        <meta name="keywords" content={[data.page.title, 'çakraz', 'emlak', 'çakraz emlak']} />
+      </Helmet>
       <Layout>
-        <Hero image={data.strapiPages.heroimg} />
+        <Hero image={data.page.heroimg} />
         <Container maxWidth="container.xl" pb="8" position="relative">
           <Box background="white" boxShadow="sm" mt={{ base: "-56", md: "-16" }} borderRadius="md" paddingX="8" paddingY="4" paddingBottom="12">
-            <Title>{data.strapiPages.title}</Title>
-            <Text>{data.strapiPages.description}</Text>
+            <Title>{data.page.title}</Title>
+            <Text>{data.page.description}</Text>
           </Box>
         </Container>
       </Layout>
@@ -25,7 +29,7 @@ function Page({ data }) {
 
 export const query = graphql`
   query PageTemplate($id: String!) {
-    strapiPages(id: { eq: $id }) {
+    page: strapiPages(id: { eq: $id }) {
       slug
       title
       description

@@ -6,6 +6,7 @@ import SiteWrapper from "../chakra";
 import Layout from "../components/layout/layout";
 import Title from "../components/layout/title";
 import Hero from "../components/layout/hero";
+import { Helmet } from 'react-helmet';
 
 function ContactPage() {
   const { homepage } = useStaticQuery(graphql`
@@ -21,13 +22,17 @@ function ContactPage() {
         full_address
         phone
         email
+        keywords
       }
     }
   `);
 
   return (
     <SiteWrapper>
-      <title>İletişim | Çakraz Emlak</title>
+      <Helmet title="İletişim | Çakraz Emlak">
+        <meta name="description" content={`Çakraz Emlak İletişim, Telefon: ${homepage.phone}, Adres: ${homepage.full_address}, E-Mail: ${homepage.email}`} />
+        <meta name="keywords" content={homepage.keywords} />
+      </Helmet>
       <Layout>
         <Hero image={homepage.heroimg} />
         <Container maxWidth="container.xl" pb="8" position="relative">
