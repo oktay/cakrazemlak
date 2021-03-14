@@ -18,6 +18,18 @@ const IndexPage = ({ data }) => {
       <Helmet title="Anasayfa | Çakraz Emlak">
         <meta name="description" content={data.homepage.description} />
         <meta name="keywords" content={data.homepage.keywords} />
+
+        <meta property="og:url" content="https://cakrazemlak.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Anasayfa | Çakraz Emlak" />
+        <meta property="og:description" content={data.homepage.description} />
+        <meta property="og:image" content={data.logo.publicURL} />
+
+        <meta name="twitter:card"  content={data.logo.publicURL} />
+        <meta property="twitter:domain" content="https://cakrazemlak.vercel.app" />
+        <meta property="twitter:url" content="https://cakrazemlak.vercel.app/" />
+        <meta name="twitter:title" content="Anasayfa | Çakraz Emlak" />
+        <meta name="twitter:description" content={data.homepage.description} />
       </Helmet>
       <Layout>
         <Hero image={data.homepage.heroimg} />
@@ -48,6 +60,12 @@ export const query = graphql`
           }
         }
       }
+    }
+    logo: file(
+      relativePath: { eq: "icon.png" }
+      sourceInstanceName: { eq: "images" }
+    ) {
+      publicURL
     }
   }
 `;

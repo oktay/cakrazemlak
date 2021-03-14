@@ -13,6 +13,18 @@ function Sale({ data }) {
       <Helmet title="Satılık | Çakraz Emlak">
         <meta name="description" content="Satılık ilanlar, Çakraz Emlak"/>
         <meta name="keywords" content="çakraz, emlak, satılık, daire, satılık daire, ev, satılık ev"/>
+
+        <meta property="og:url" content="https://cakrazemlak.vercel.app/satilik" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Satılık | Çakraz Emlak" />
+        <meta property="og:description" content="Satılık ilanlar, Çakraz Emlak" />
+        <meta property="og:image" content={data.logo.publicURL} />
+
+        <meta name="twitter:card"  content={data.logo.publicURL} />
+        <meta property="twitter:domain" content="https://cakrazemlak.vercel.app" />
+        <meta property="twitter:url" content="https://cakrazemlak.vercel.app/satilik" />
+        <meta name="twitter:title" content="Satılık | Çakraz Emlak" />
+        <meta name="twitter:description"content="Satılık ilanlar, Çakraz Emlak" />
       </Helmet>
       <Layout>
         <Container maxWidth="container.xl" pb="8">
@@ -32,6 +44,12 @@ export const query = graphql`
       nodes {
         ...Advert
       }
+    }
+    logo: file(
+      relativePath: { eq: "icon.png" }
+      sourceInstanceName: { eq: "images" }
+    ) {
+      publicURL
     }
   }
 `;

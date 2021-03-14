@@ -13,6 +13,18 @@ function Rent({ data }) {
       <Helmet title="Kiralık | Çakraz Emlak">
         <meta name="description" content="Kiralık ilanlar, Çakraz Emlak"/>
         <meta name="keywords" content="çakraz, emlak, kiralık, daire, kiralık daire, ev, kiralık ev"/>
+
+        <meta property="og:url" content="https://cakrazemlak.vercel.app/kiralik" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Kiralık | Çakraz Emlak" />
+        <meta property="og:description" content="Kiralık ilanlar, Çakraz Emlak" />
+        <meta property="og:image" content={data.logo.publicURL} />
+
+        <meta name="twitter:card"  content={data.logo.publicURL} />
+        <meta property="twitter:domain" content="https://cakrazemlak.vercel.app" />
+        <meta property="twitter:url" content="https://cakrazemlak.vercel.app/kiralik" />
+        <meta name="twitter:title" content="Kiralık | Çakraz Emlak" />
+        <meta name="twitter:description"content="Kiralık ilanlar, Çakraz Emlak" />
       </Helmet>
       <Layout>
         <Container maxWidth="container.xl" pb="8">
@@ -32,6 +44,12 @@ export const query = graphql`
       nodes {
         ...Advert
       }
+    }
+    logo: file(
+      relativePath: { eq: "icon.png" }
+      sourceInstanceName: { eq: "images" }
+    ) {
+      publicURL
     }
   }
 `;
