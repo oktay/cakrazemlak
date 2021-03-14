@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Heading, Stack, useToast } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack, useMediaQuery, useToast } from "@chakra-ui/react";
 import { FormControl, FormLabel, Select } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
@@ -28,6 +28,7 @@ function Searchbox({ adverts }) {
   const [type, setType] = useState("kiralik");
   const [filteredAdverts, setFilteredAdverts] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [isDesktop] = useMediaQuery("(min-width: 80em)")
   const toast = useToast();
   const resultsRef = useRef(null);
 
@@ -69,7 +70,7 @@ function Searchbox({ adverts }) {
       status: "success",
       duration: 1000,
       isClosable: true,
-      position: "top-right",
+      position: isDesktop ? "top-right" : "bottom"
     });
   }
 

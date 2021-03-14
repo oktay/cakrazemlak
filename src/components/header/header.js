@@ -45,7 +45,7 @@ function Header({ logo }) {
       <Drawer placement="top" isOpen={isOpen} onClose={onClose}>
         <DrawerOverlay zIndex="sticky">
           <DrawerContent borderBottomRadius="8" zIndex="sticky" paddingTop="28">
-            <DrawerBody paddingBottom="8" paddingX="1rem">
+            <DrawerBody paddingBottom="8" paddingTop="8" paddingX="1rem">
               <Navigation />
             </DrawerBody>
           </DrawerContent>
