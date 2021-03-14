@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Thumbs, Navigation, Controller } from "swiper/core";
 import { PhotoSwipe } from "react-photoswipe";
-import { Box, IconButton, Button, Image } from "@chakra-ui/react";
+import { Box, IconButton, Button, Image, useMediaQuery } from "@chakra-ui/react";
 import {
   FiArrowLeftCircle,
   FiArrowRightCircle,
@@ -20,18 +20,19 @@ function AdvertCarousel({ advert }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [index, setIndex] = useState(0);
   const [zoom, setZoom] = useState(false);
+  const [isDesktop] = useMediaQuery("(min-width: 80em)");
 
   let zoomIndex = 0;
 
   const buttons = {
-    variant: "ghost",
+    variant: isDesktop ? "ghost" : "solid",
     size: "lg",
     fontSize: "4xl",
     position: "absolute",
     top: "50%",
     zIndex: "1",
     transform: "translateY(-50%)",
-    colorScheme: "whatsapp",
+    colorScheme: isDesktop ? "whatsapp" : "blackAlpha",
   };
 
   const zoomItems = advert.zooms.map((img) => ({
