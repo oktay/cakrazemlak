@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Flex, Grid, Stack, Text } from "@chakra-ui/react";
 import AdvertCard from "./card";
-import { FiInfo } from 'react-icons/fi';
+import { FiGrid } from 'react-icons/fi';
 
 function AdvertList({ adverts }) {
   return adverts.length ? (
@@ -21,9 +21,10 @@ function AdvertList({ adverts }) {
   ) : (
     <Stack py="36" border="2px dashed" borderColor="gray.200" borderRadius="lg" alignItems="center">
       <Flex color="gray.300">
-        <FiInfo fontSize="36px" />
+        <FiGrid fontSize="36px" />
       </Flex>
-      <Text color="gray.300" maxWidth="container.sm" textAlign="center">İlan yok daha sonra tekrar ziyaret ediniz</Text>
+      <Text color="gray.300" maxWidth="container.sm" textAlign="center" fontSize="2xl">Henüz hiç ilan yok</Text>
+      <Text color="gray.300" maxWidth="container.sm" textAlign="center" fontSize="md">Daha sonra tekrar ziyaret ediniz</Text>
     </Stack>
   );
 }
