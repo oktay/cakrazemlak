@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Heading, Text, Badge, Divider, Grid } from "@chakra-ui/react";
-import { FiMapPin } from "react-icons/fi";
+import { FiCalendar, FiMapPin } from "react-icons/fi";
 import AdvertCarousel from './carousel';
 import AdvertInfo from './info';
 
@@ -10,6 +10,9 @@ function AdvertDetail({ advert }) {
       <Grid templateColumns="1fr auto">
         <Heading gridColumn={{ base: "span 3" }}>{advert.title}</Heading>
         <Stack direction="row" alignItems="center" spacing="2" gridRow="2">
+          <Stack direction="row" spacing="2" alignItems="center">
+            <FiCalendar style={{ flexShrink: 0 }} /> <Text fontSize={{ base: "sm", md: "md" }}>{advert.created_at}</Text>
+          </Stack>
           <Stack direction="row" spacing="2" alignItems="center">
             <FiMapPin style={{ flexShrink: 0 }} /> <Text fontSize={{ base: "sm", md: "md" }}>{advert.location}</Text>
           </Stack>
